@@ -39,7 +39,6 @@ const report = {
    ],
 };
 
-
 const data = fs.readFileSync(htmlReportConfigSrc).toString();
 // unwrap jsonp "report({... data ... });"
 const result = JSON.parse(data.substring(7, (data.length - 2)));
@@ -81,6 +80,29 @@ else {
 report.configPath  = `${report.dest}/html_report/config.js`;
 
 // Save reduced report to disc. 
+if (argv.inplace) {
+
+  report.files.forEach((p) => {  	
+  	if (p.substring(0,1) === '!') {
+  	  const fileName = p.substring(1)
+  	  if (fs.existsSync(fileName)) {
+  	    fs.unlink(fileName, (err) => {
+          if (err) {
+            error(err);
+          }
+          success(`Deleted: ${fileName}`)
+     	});
+  	  }
+  	  else {
+  	    warn(`Could not delete file:\n  ${fileName}`)
+  	  }
+
+  	}
+  })
+  fs.writeFileSync(report.configPath, report.config);
+  console.log(chalk.green(`  Updated config:\n    ${report.configPath}`));
+}
+else {
 copy(report.source , report.dest, {filter: report.files, expand: true})
   .then(function(results) {
     console.log(chalk.green(`  Copied ${results.length} files`));
@@ -92,4 +114,5 @@ copy(report.source , report.dest, {filter: report.files, expand: true})
   .catch(function(error) {
      error('Copy failed: ' + error);
   })
+}
   

@@ -4,9 +4,8 @@
   "description": "",
   "main": "dist/error-report-only.sh",
   "scripts": {
-    "serve": "webpack serve --config webpack.config.js --progress --profile --content-base src",
     "build": "webpack build --config webpack.config.js --progress --profile  && chmod +x dist/error-report-only.sh",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-and-copy": "webpack build --config webpack.config.js --progress --profile  && chmod +x dist/error-report-only.sh && mkdir -p ../backstopjs/backstop_data/pipeline_scripts && cp dist/error-report-only.sh ../backstopjs/backstop_data/pipeline_scripts/error-report-only.sh"
   },
   "keywords": [],
   "author": "",
