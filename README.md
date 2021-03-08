@@ -33,3 +33,15 @@ It *deletes the successful* test and reference images and also updates html_repo
 ``` 
 error-report-only.sh --inplace
 ```
+
+**Pipeline usage example**
+
+Intended use is to create two download assets `backstop_data` and `backstop_data_failonly` so you can download less if you want references for a few failed tests. 
+
+```
+mkdir -p backstopjs/backstop_data/pipeline_sctipts/ \
+&& wget https://raw.githubusercontent.com/digitaldonkey/backstopjs-failsonly/0.0.1-alpha/dist/error-report-only.sh?token=XXXXXXXXXXXXXXXXXXXXXXXXXXX -O backstopjs/backstop_data/pipeline_sctipts/error-report-only.sh \
+&& chmod a+x backstopjs/backstop_data/pipeline_sctipts/error-report-only.sh \
+&& backstopjs/backstop_data/pipeline_sctipts/error-report-only.sh \
+&& open backstopjs/backstop_data_failonly/html_report/index.html
+```
