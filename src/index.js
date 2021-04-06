@@ -5,7 +5,6 @@ const argv = yargs(hideBin(process.argv)).argv
 const chalk = require('chalk');
 const fs = require('fs')
 const path = require('path');
-const JSONP = require('node-jsonp');
 
 const copy = require('recursive-copy');
 
