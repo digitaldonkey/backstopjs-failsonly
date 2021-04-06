@@ -40,7 +40,7 @@ Intended use is to create two download assets `backstop_data` and `backstop_data
 
 ```
 mkdir -p backstopjs/backstop_data/pipeline_scripts/ \
-&& wget https://raw.githubusercontent.com/digitaldonkey/backstopjs-failsonly/0.0.1-alpha/dist/error-report-only.sh?token=XXXXXXXXXXXXXXXXXXXXXXXXXXX -O backstopjs/backstop_data/pipeline_scripts/error-report-only.sh \
+&& wget https://raw.githubusercontent.com/digitaldonkey/backstopjs-failsonly/0.0.1-alpha/dist/error-report-only.sh -O backstopjs/backstop_data/pipeline_scripts/error-report-only.sh \
 && chmod a+x backstopjs/backstop_data/pipeline_scripts/error-report-only.sh \
 && backstopjs/backstop_data/pipeline_scripts/error-report-only.sh
 # open backstopjs/backstop_data_failonly/html_report/index.html
