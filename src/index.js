@@ -83,7 +83,7 @@ if (argv.inplace) {
 
   report.files.forEach((p) => {  	
   	if (p.substring(0,1) === '!') {
-  	  const fileName = p.substring(1)
+	  const fileName = `${report.dest}/${p.substring(1)}`
   	  if (fs.existsSync(fileName)) {
   	    fs.unlink(fileName, (err) => {
           if (err) {
