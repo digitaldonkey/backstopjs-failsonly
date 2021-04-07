@@ -21,8 +21,8 @@ const warn = (msg) => {
 }
 
 
-// Assuming backstop_data/pipeline here.
-const backstopDataDir = path.resolve(__dirname + '/..') ;
+// Assuming backstop_data/pipeline_scripts here if backstop-dir option is not set.
+const backstopDataDir = path.resolve(argv['backstop-dir'] || __dirname + '/..') ;
 success(`Backstop result source:\n ${backstopDataDir}`);
 
 const htmlReportConfigSrc = backstopDataDir + '/html_report/config.js';
@@ -39,7 +39,7 @@ const report = {
 };
 
 const data = fs.readFileSync(htmlReportConfigSrc).toString();
-// unwrap jsonp "report({... data ... });"
+// unwrap json "report({... data ... });"
 const result = JSON.parse(data.substring(7, (data.length - 2)));
 
  // Blacklist files from successful tests.
@@ -106,7 +106,7 @@ copy(report.source , report.dest, {filter: report.files, expand: true})
   .then(function(results) {
     console.log(chalk.green(`  Copied ${results.length} files`));
     
-    // Save updated jsonp test report. 
+    // Save updated json test report.
     fs.writeFileSync(report.configPath, report.config);
     console.log(chalk.green(`  Updated config:\n    ${report.configPath}`));
   })
