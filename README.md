@@ -21,8 +21,8 @@ To keep things tiny the **copy** option uses a whitelist.
 'bitmaps_reference/**/*',
 'bitmaps_test/**/*',
 'html_report/**/*',
-'!bitmaps_reference/test-sucess.png'
-'!bitmaps_test/20210305-131059/test-sucess.png'
+'!bitmaps_reference/test-success.png'
+'!bitmaps_test/20210305-131059/test-success.png'
  ...
 ```
 
