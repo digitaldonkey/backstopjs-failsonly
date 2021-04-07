@@ -34,6 +34,12 @@ It *deletes the successful* test and reference images and also updates html_repo
 error-report-only.sh --inplace
 ```
 
+If you'd like to provide your own path to the backstop directory, you can set the `backstop-dir` option:
+
+```
+error-report-only.sh --backstop-dir=/some/where/backstop
+```
+
 **Pipeline usage example**
 
 Intended use is to create two download assets `backstop_data` and `backstop_data_failonly` so you can download less if you want references for a few failed tests. 

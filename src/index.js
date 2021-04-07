@@ -21,8 +21,8 @@ const warn = (msg) => {
 }
 
 
-// Assuming backstop_data/pipeline here.
-const backstopDataDir = path.resolve(__dirname + '/..') ;
+// Assuming backstop_data/pipeline_scripts here if backstop-dir option is not set.
+const backstopDataDir = path.resolve(argv['backstop-dir'] || __dirname + '/..') ;
 success(`Backstop result source:\n ${backstopDataDir}`);
 
 const htmlReportConfigSrc = backstopDataDir + '/html_report/config.js';

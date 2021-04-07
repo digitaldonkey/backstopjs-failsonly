@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "main": "dist/error-report-only.sh",
+  "bin": "dist/error-report-only.sh",
   "scripts": {
     "build": "webpack build --config webpack.config.js --progress --profile && chmod +x dist/error-report-only.sh",
     "build-and-copy": "webpack build --config webpack.config.js --progress --profile && chmod +x dist/error-report-only.sh && mkdir -p ../backstopjs/backstop_data/pipeline_scripts && cp dist/error-report-only.sh ../backstopjs/backstop_data/pipeline_scripts/error-report-only.sh"
